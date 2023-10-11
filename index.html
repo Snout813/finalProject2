@@ -3,25 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <title>Document</title>
+    <style>
+      *{
+          /*font-family: 'Noto Sans KR', sans-serif;*/
+          list-style: none; /*목록에 점을 없애는 기능*/
+          text-decoration: none;
+          border-collapse: collapse;
+          margin: 0px;
+          padding: 0px;
+          /*color: #000;*/
+      }
+      h2{
+          color: #000;
+          font-family: Noto Sans KR;
+          font-size: 50px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+      }
 
+      h3{
+          color: #fff;
+          text-shadow: -1px 0px #000, 0px 1px #000, 1px 0px #000, 0px -1px #000;
+          /*-webkit-text-stroke: 0.01px #000;*/
+          font-family: Noto Sans KR;
+          font-size: 34px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 150%;
+      }
+
+      h5{
+          color: #000;
+          font-family: Noto Sans KR;
+          font-size: 16.616px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: normal;
+      }
+
+      .header{
+          position: fixed;
+          top: 0; left: 0;
+          z-index: 100; /*가장 상단에 위치함을 나타냄*/
+          /*header 사라지지 않게 하기 위한 용도*/
+          display: flex; /*logo와 네비게이션 바 함께 두기 위한 용도*/
+
+          width: 100%;
+          height: 53px;
+          background-color: #fff;
+          box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+
+      }
+      .logo{
+          display: flex;
+
+          margin-left: 100px; /*logo 왼쪽에 두기위한 용도*/
+          background-color: #fff;
+      }
+
+      .nav{
+          display: flex;
+          justify-content: flex-end;
+          margin-left:auto;
+          margin-right:53px;
+          line-height: 53px;
+          background-color: #fff;
+      }
+      .nav > li{
+          margin-left: 53px;
+      }
+      .nav > li > a{
+          color: #54B977;
+          text-shadow: -0.3px 0px #000, 0px 0.3px #000, 0.3px 0px #000, 0px -0.3px #000;
+          text-align: center;
+          font-family: Akzidenz-Grotesk BQ;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+      }
+
+      #login_icon{
+          padding-top: 8px;
+      }
+
+      .first{
+          padding-top: 53px;
+          display: flex;
+      }
+
+      .main{
+          position: relative;
+          background-color: white;
+
+      }
+      .intro>h3{
+          color: #54B977;
+          text-shadow: -0.3px 0px #000, 0px 0.3px #000, 0.3px 0px #000, 0px -0.3px #000;
+          text-align: left;
+          font-family: Noto Sans KR;
+          font-size: 33.333px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 150%;
+          margin-left: 106.67px;
+          margin-top:230px;
+          position: relative;
+      }
+
+      .second{
+          margin-top:90px;
+          position:relative;
+      }
+      .menu{
+          display: flex;
+          background-color: #F0F0F0;
+          margin-left: auto;
+          margin-right:auto;
+          width: 904px;
+          height: 66px;
+          border-radius: 40px 40px 40px 40px / 40px 40px 40px 40px;
+      }
+      .menu-item{
+          display: flex;
+          background-color: #F0F0F0;
+          border-radius: 40px 40px 40px 40px / 40px 40px 40px 40px;
+      }
+      .menu>li>a:hover{
+          background-color: #54B977;
+          color:#ffffff;
+          flex-grow:1.2;
+          font-size:22px;
+          width:190px;
+      }
+      .menu>li>a{
+          font-family: Noto Sans KR;
+          width:180.6px;
+          height: 66px;
+          font-size: 20px;
+          font-weight: bold;
+          color:#000;
+          border-radius: 40px 40px 40px 40px / 40px 40px 40px 40px;
+          text-align: center;
+          line-height:66px;
+          transition:0.5s;
+          cursor:pointer;
+      }      
+      .list{
+          margin-top:15px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          max-width: 1057px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .card {
+          border-radius: 5px;
+          height: 267px;
+          width: 333.333px;
+          margin-bottom:30px;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+          margin-right: 7.5px;
+          margin-left: 7.5px;
+          display: inline-block;
+      }
+      .card.invisible{
+          display: none;
+      }
+      .img{
+          width: 333.333px;
+          height: 186.66px;
+          flex-shrink: 0;
+          border-radius: 20px 20px 0px 0px;
+          transition: all 0.2s linear;
+      }
+      .img:hover{
+          transform: scale(1.05);
+          transition: 0.5s;
+      }
+      .text{
+          width: 333.333px;
+          height: 80px;
+      }
+      .first_line{
+          display: flex;
+      }
+      .first_line > a{
+          color: #000;
+          font-family: Noto Sans KR;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: bold;
+          line-height: normal;
+          opacity:.8;  /*투명도*/
+          margin-left: 20.39px;
+          margin-right: auto;
+          margin-top: 14px;
+      }
+      .date{
+          color:#fff;
+          font-family: Noto Sans KR;
+          font-size :12px;
+          font-style: normal;
+          font-weight: bold;
+          line-height: normal;
+          border-radius: 20px;
+          background-color: #54B977;
+          gap: 6.667px;
+          align-items: center;
+          justify-content: center;
+          padding: 5.333px 12px;
+          width: 39px;
+          height: 17px;
+          margin-right:20.39px;
+          margin-left: auto;
+          margin-top: 14.67px;
+          transition: .2s;
+
+      }
+      .date:hover{
+          color:#000;
+          background: #f9d96c;
+      }
+      .second_line{
+          margin-top: 6.67px;
+          margin-left: 20.39px
+      }
+
+      .tag{
+          color:#9B9B9B;
+          font-family: Noto Sans KR;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: bold;
+          line-height: normal;
+
+      }
+
+      .writeButton{
+          display:flex;
+          position: relative;
+      }
+      .write{
+          background: #54B977;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor:pointer;
+          border-radius: 5px;
+          transition: .2s;
+          color: #F0F0F0;
+          border: 0;
+          font-size :17px;
+          width: 70px;
+          height: 30px;
+          margin-top:15px;
+          margin-right: 190px;
+          margin-left:auto;
+      }
+      .write:hover{
+          color:#000;
+          background: #f9d96c;
+      }
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">Simple header</span>
-          </a>
-    
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-          </ul>
-        </header>
+<div class="weap">
+  <div class="header">
+      <div class="logo">
+          <img src="./img/book.png" width="71px" height="53px">
       </div>
+      <ul class="nav">
+          <li><a href="">HOME</a></li>
+          <li><a href="">NoStyle</a></li>
+          <li><a href="">Example</a></li>
+          <li><a href="">About</a></li>
+      </ul>
+  </div>
+
+  <div class="first">
+    <div class="main">
+        <div class="intro">
+            <h3>
+              다양한 책들을 만나 보세요!
+            </h3>
+        </div>
+    </div>
+  </div>
+
+  <div class = "second">
+    <div class="menu">
+        <li class="menu-item" data-filter ="문학">
+            <a>문학</a>
+        </li>
+        <li class="menu-item" data-filter = "사회과학">
+            <a>사회과학</a>
+        </li>
+        <li class="menu-item" data-filter = "기술, 순수과학">
+            <a>기술, 순수과학</a>
+        </li>
+        <li class="menu-item" data-filter="예술">
+            <a>예술</a>
+        </li>
+        <li class="menu-item" data-filter="역사">
+          <a>역사</a>
+      </li>
+    </div>
+  </div>
+  <div class="writeButton">
+    <button id="writeButton" class="write">글 쓰기</button>
+  </div>
+  <div class="list">
+    <div class="card">
+      <div class = "img">
+        <a href="view.html">
+            <img src ="img/세 왕이야기.jpg" style="max-width: 333.333px; max-height: 186.66px;  display: block; margin: 0 auto;" height="auto">
+        </a>
+      </div>
+      <div class = "text">
+          <div class="first_line">
+          <a href="view.html">
+            세 왕 이야기
+          </a>
+          <p class="date" style="text-align: center;">
+            2010
+          </p>
+          </div>
+          <div class="second_line">
+              <p class="tag">
+                  #저자: 진 에드워드 #장르: 문학
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class = "img">
+        <a href="view.html">
+            <img src ="img/페스트.jpeg" style="max-width: 333.333px; max-height: 186.66px;  display: block; margin: 0 auto;" height="auto">
+        </a>
+      </div>
+      <div class = "text">
+          <div class="first_line">
+          <a href="view.html">
+            페스트
+          </a>
+          <p class="date" style="text-align: center;">
+            2011
+          </p>
+          </div>
+          <div class="second_line">
+              <p class="tag">
+                  #저자: 알베르 카뮈 #장르: 문학
+              </p>
+          </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class = "img">
+        <a href="view.html">
+            <img src ="img/피로사회.jpeg" style="max-width: 333.333px; max-height: 186.66px;  display: block; margin: 0 auto;" height="auto">
+        </a>
+      </div>
+      <div class = "text">
+          <div class="first_line">
+          <a href="view.html">
+            피로사회
+          </a>
+          <p class="date" style="text-align: center;">
+            2012
+          </p>
+          </div>
+          <div class="second_line">
+              <p class="tag">
+                  #저자: 한병철 #장르: 사회과학
+              </p>
+          </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class = "img">
+        <a href="view.html">
+            <img src ="img/손해의 낭만.jpeg" style="max-width: 333.333px; max-height: 186.66px;  display: block; margin: 0 auto;" height="auto">
+        </a>
+      </div>
+      <div class = "text">
+          <div class="first_line">
+          <a href="view.html">
+            손해의 낭만
+          </a>
+          <p class="date" style="text-align: center;">
+            2017
+          </p>
+          </div>
+          <div class="second_line">
+              <p class="tag">
+                  #저자: 김창현 #장르: 사회과학
+              </p>
+          </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<script>
+  var button = document.getElementById("writeButton");
+  button.addEventListener("click", function(){
+    window.location.href = "add.html";
+  });
+</script>
 </body>
 </html>
