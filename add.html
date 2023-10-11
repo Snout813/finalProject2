@@ -3,8 +3,10 @@
 <head>
     <title>글쓰기 페이지</title>
     <meta charset="uft8">
+    <link rel="stylesheet" type="text/css" href="my.css">
+
     <style>
-        #title, #team, #projectLink{
+        #title{
             width:400px; 
             height:40px; 
             border-radius: 10px; 
@@ -95,58 +97,60 @@
       </style>
 </head>
 <body>
-  
-    <!-- 글쓰기 폼 시작 -->
-    <form action="" method="post" id="myForm" onsubmit="return validateForm()">
-        <!-- 제목 입력 -->
-        <input type="text" id="title" name="title" required
-        placeholder="    제목" onfocus="this.placeholder=''" onblur="this.placeholder='    제목'"/>
-        
-        <!-- 기간 입력 -->
-        <div class="selectBox">
-        <select id="year" name="year" class="select" required>
-            <option value="">출판년도</option>
-            <!-- JavaScript로 현재 년도까지의 옵션을 동적으로 생성 -->
-            <script>
-            const currentYear = new Date().getFullYear();
-            const yearSelect = document.getElementById('year');
-            for (let year = 1950; year <= currentYear; year++) {
-                const option = document.createElement('option');
-                option.value = year;
-                option.text = year + '년';
-                yearSelect.appendChild(option);
-            }
-            </script>
-        </select>
-        </div>
-        
-        <input type="text" id="author" name="author" required
-        placeholder="    저자" onfocus="this.placeholder=''" onblur="this.placeholder='    저자'">
-        <br>
-        
-        <div class="selectBox">
-        <select id="genre" name="genre" class="select" required>
-            <option value="">장르 선택</option>
-            <option value="문학">문학</option>
-            <option value="사회과학">사회과학</option>
-            <option value="순수, 기술과학">순수, 기술과학</option>
-            <option value="예술">예술</option>
-            <option value="역사">역사</option>
-        </select>
-        <br>
-        </div>
-        
-        
-        <!-- 설명 입력 -->
-        <textarea id="description" name="description" rows="4" cols="50" required
-        placeholder="  설명을 적어주세요" onfocus="this.placeholder=''" onblur="this.placeholder='  설명을 적어주세요'"></textarea>
-        <br>
-        
-        <!-- 제출 버튼 -->
-        <input type="submit" value="Submit" id="submitButton">
-        <!-- 취소 버튼 -->
-        <button type="button" id="cancelButton" onclick="cancelForm()">취소</button>
-    </form>
+    <div class= weap>
+        <!-- 글쓰기 폼 시작 -->
+        <form action="" method="post" id="myForm" onsubmit="return validateForm()">
+            <!-- 제목 입력 -->
+            <input type="text" id="title" name="title" required
+            placeholder="    제목" onfocus="this.placeholder=''" onblur="this.placeholder='    제목'"/>
+            
+            <!-- 기간 입력 -->
+            <div class="selectBox">
+            <select id="year" name="year" class="select" required>
+                <option value="">출판년도</option>
+                <!-- JavaScript로 현재 년도까지의 옵션을 동적으로 생성 -->
+                <script>
+                const currentYear = new Date().getFullYear();
+                const yearSelect = document.getElementById('year');
+                for (let year = 1950; year <= currentYear; year++) {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.text = year + '년';
+                    yearSelect.appendChild(option);
+                }
+                </script>
+            </select>
+            </div>
+            
+            <input type="text" id="author" name="author" required
+            placeholder="    저자" onfocus="this.placeholder=''" onblur="this.placeholder='    저자'">
+            <br>
+            
+            <div class="selectBox">
+            <select id="genre" name="genre" class="select" required>
+                <option value="">장르 선택</option>
+                <option value="문학">문학</option>
+                <option value="사회과학">사회과학</option>
+                <option value="순수, 기술과학">순수, 기술과학</option>
+                <option value="예술">예술</option>
+                <option value="역사">역사</option>
+            </select>
+            <br>
+            </div>
+            
+            
+            <!-- 설명 입력 -->
+            <textarea id="description" name="description" rows="4" cols="50" required
+            placeholder="  설명을 적어주세요" onfocus="this.placeholder=''" onblur="this.placeholder='  설명을 적어주세요'"></textarea>
+            <br>
+            
+            <!-- 제출 버튼 -->
+            <input type="submit" value="Submit" id="submitButton">
+            <!-- 취소 버튼 -->
+            <button type="button" id="cancelButton" onclick="cancelForm()">취소</button>
+        </form>
+    </div>
+
     <script>
         function validateForm() {
             var title = document.getElementById('title');
