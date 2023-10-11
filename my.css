@@ -1,4 +1,7 @@
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* 가로 스크롤 숨김 */
+    }
     .weap{
         width:100%;
     }
