@@ -1,8 +1,41 @@
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     body {
         overflow-x: hidden; /* 가로 스크롤 숨김 */
     }
     .weap{
+        width:100%;
+    }
+    .header{
+        width:100%;
+    }
+    .first{
+        width:100%;
+    }
+    .second{
+        width:100%;
+    }
+    .list{
+        width:100%;
+    }
+    .card{
+        width:100%;
+    }
+    .contain{
+        width:100%;
+    }
+    .explain{
+        width:100%;
+    }
+    .form{
+        width:100%;
+    }
+    .selectBox{
+        width:100%;
+    }
+    #author{
+        width:100%;
+    }
+    #description{
         width:100%;
     }
 }
